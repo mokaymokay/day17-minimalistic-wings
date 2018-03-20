@@ -11,7 +11,9 @@ $.ajax({
     })
     let items = $('.item');
     $(items).each(function(i) {
-      console.log(products[i].title);
+      // console.log(products[i].title);
+      $(items[i]).append($('<p></p>')).text(products[i].title);
     })
+
   }
 })
