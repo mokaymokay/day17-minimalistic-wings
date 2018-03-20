@@ -5,14 +5,22 @@ body {
 
 #container {
   width: 98vw;
-  border: 2px solid red;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .item {
   height: 32vw;
   width: 32vw;
-  justify-content: center;
-  align-items: center;
+}
+
+figcaption {
+  font-size: 2vw;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
 }

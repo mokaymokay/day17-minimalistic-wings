@@ -1,18 +1,26 @@
-// AJAX should append all src (images) to div#container, each in a div with class of .item
-// as well as append title (product name) underneath the images
-
 $.ajax({
   url: "https://www.redbullshopus.com/products.json",
   success: function(data) {
+
     let products = data.products;
     $(products).each(function(i) {
-      // console.log(products[i]);
-      $('#container').append($('<div></div>').addClass('item'));
+      $('#container').append($('<figure></figure>').addClass('item'));
     })
+
     let items = $('.item');
     $(items).each(function(i) {
-      // console.log(products[i].title);
-      $(items[i]).append($('<p></p>')).text(products[i].title);
+      $(items[i]).append($('<figcaption></figcaption>'));
+      $(items[i]).append($('<img>').addClass('product-image'));
+    })
+
+    let captions = $('figcaption');
+    $(captions).each(function(i){
+      $(captions[i]).text(products[i].title)
+    })
+
+    let images = $('.product-image');
+    $(images).each(function(i) {
+      $(images[i]).attr("src", `${products[i].images[0].src}`);
     })
 
   }
