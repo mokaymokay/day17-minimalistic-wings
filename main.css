@@ -1,5 +1,5 @@
 body {
-  font-family: 'Oswald', sans-serif;
+  font-family: sans-serif;
 }
 
 #container {
@@ -24,7 +24,6 @@ body {
 
 h1 {
   font-size: 3rem;
-  font-weight: 400;
   text-align: center;
 }
 
@@ -46,7 +45,8 @@ figcaption {
   width: 90%;
   font-size: 1rem;
   font-weight: 300;
-  display: none;
+  text-align: center;
+  /* display: none; */
 }
 
 @media screen and (max-width: 992px) {

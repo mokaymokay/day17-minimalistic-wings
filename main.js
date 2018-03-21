@@ -1,35 +1,55 @@
 $.ajax({
-  url: "https://www.redbullshopus.com/products.json",
-  success: function(data) {
+    url: "https://www.redbullshopus.com/products.json",
+    success: function(data) {
 
-    let products = data.products;
-    $(products).each(function(i) {
-      $('#container').append($('<figure></figure>').addClass('item'));
-    })
+      let products = data.products;
+      $(products).each(function(i) {
+        addFigures();
+        addInnerElements(i);
+        addFigcaptionText(i);
+        addImgSrc(i);
+        addDescription(i);
+      })
 
-    let items = $('.item');
-    $(products).each(function(i) {
-      $(items[i]).append($('<figcaption></figcaption>'));
-      $(items[i]).append($('<img>').addClass('product-image'));
-      $(items[i]).append($('<p class="description"></p>'));
-    })
+      function addFigures() {
+        $('#container').append($('<figure></figure>').addClass('item'));
+      }
 
-    let captions = $('figcaption');
-    $(products).each(function(i){
-      $(captions[i]).text(products[i].title);
-    })
+      function addInnerElements(i) {
+          let items = $('.item');
+          $(items[i]).append($('<figcaption></figcaption>'));
+          $(items[i]).append($('<img>').addClass('product-image'));
+          $(items[i]).append($('<p class="description toggle"></p>'));
+      }
 
-    let images = $('.product-image');
-    $(products).each(function(i) {
-      $(images[i]).attr("src", `${products[i].images[0].src}`);
-    })
+      function addFigcaptionText(i) {
+        let captions = $('figcaption');
+        $(captions[i]).text(products[i].title);
+      }
 
-    let description = $('.description');
-    let paraRegex = '<p>(.*?)</p>';
-    $(products).each(function(i) {
-      let descriptionText = products[i].body_html.match(paraRegex);
-      if (descriptionText !== null) { descriptionText = descriptionText[1] };
-      $(description[i]).append(descriptionText);
-    })
-  }
+      function addImgSrc(i) {
+        let images = $('.product-image');
+        $(images[i]).attr("src", `${products[i].images[0].src}`);
+      }
+
+      function addDescription(i) {
+        let description = $('.description');
+        let paraRegex = '<p>(.*?)</p>';
+        let descriptionText = products[i].body_html.match(paraRegex);
+        if (descriptionText !== null) { descriptionText = descriptionText[1] };
+        $(description[i]).append(descriptionText);
+      }
+    }
+  })
+
+$(document).ready(function() {
+
+  $('#container').on('mouseenter', '.item .product-image', function(e) {
+      // e.stopPropagation();
+      $(this).next('.toggle').toggle();
+  }).on('mouseleave', '.item .product-image', function(e) {
+      // e.stopPropagation();
+      $(this).next('.toggle').toggle();
+  });
+
 })
