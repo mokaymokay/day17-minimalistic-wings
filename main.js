@@ -8,20 +8,28 @@ $.ajax({
     })
 
     let items = $('.item');
-    $(items).each(function(i) {
+    $(products).each(function(i) {
       $(items[i]).append($('<figcaption></figcaption>'));
       $(items[i]).append($('<img>').addClass('product-image'));
+      $(items[i]).append($('<p class="description"></p>'));
     })
 
     let captions = $('figcaption');
-    $(captions).each(function(i){
-      $(captions[i]).text(products[i].title)
+    $(products).each(function(i){
+      $(captions[i]).text(products[i].title);
     })
 
     let images = $('.product-image');
-    $(images).each(function(i) {
+    $(products).each(function(i) {
       $(images[i]).attr("src", `${products[i].images[0].src}`);
     })
 
+    let description = $('.description');
+    let paraRegex = '<p>(.*?)</p>';
+    $(products).each(function(i) {
+      let descriptionText = products[i].body_html.match(paraRegex);
+      if (descriptionText !== null) { descriptionText = descriptionText[1] };
+      $(description[i]).append(descriptionText);
+    })
   }
 })

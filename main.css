@@ -18,7 +18,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   border: 1px solid #DDD;
-  padding-top: 1vw;
+  padding: 1vw 0;
   box-shadow: 1px 1px 5px #DDD;
 }
 
@@ -29,11 +29,11 @@ h1 {
 }
 
 figcaption {
-  width: 60%;
-  font-size: 1.2rem;
-  font-weight: 300;
+  width: 90%;
+  height: 10%;
+  font-size: 1rem;
+  font-weight: 400;
   text-align: center;
-
 }
 
 .product-image {
@@ -41,9 +41,20 @@ figcaption {
   width: 80%;
 }
 
+.description {
+  height: 10%;
+  width: 90%;
+  font-size: 1rem;
+  font-weight: 300;
+  display: none;
+}
+
 @media screen and (max-width: 992px) {
   .item {
     height: 90vw;
     width: 90vw;
+  }
+  figcaption {
+    font-size: 1.5rem;
   }
 }
