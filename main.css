@@ -1,6 +1,5 @@
 body {
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   font-weight: 300;
+  font-family: 'Oswald', sans-serif;
 }
 
 #container {
@@ -12,15 +11,39 @@ body {
 }
 
 .item {
-  height: 32vw;
-  width: 32vw;
+  height: 30vw;
+  width: 30vw;
+  margin: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 1px solid #DDD;
+  padding-top: 1vw;
+  box-shadow: 1px 1px 5px #DDD;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
 }
 
 figcaption {
-  font-size: 2vw;
+  width: 60%;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-align: center;
+
 }
 
 .product-image {
-  height: 200px;
-  width: 200px;
+  height: 80%;
+  width: 80%;
+}
+
+@media screen and (max-width: 992px) {
+  .item {
+    height: 90vw;
+    width: 90vw;
+  }
 }
