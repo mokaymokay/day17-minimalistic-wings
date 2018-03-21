@@ -17,9 +17,8 @@ $.ajax({
 
       function addInnerElements(i) {
           let items = $('.item');
-          $(items[i]).append($('<figcaption></figcaption>'));
-          $(items[i]).append($('<img>').addClass('product-image'));
-          $(items[i]).append($('<p class="description toggle"></p>'));
+          $(items[i]).append($('<figcaption></figcaption><img class="product-image">'));
+          $(items[i]).append($('<p class="description"></p>'));
       }
 
       function addFigcaptionText(i) {
@@ -44,12 +43,12 @@ $.ajax({
 
 $(document).ready(function() {
 
-  $('#container').on('mouseenter', '.item .product-image', function(e) {
-      // e.stopPropagation();
-      $(this).next('.toggle').toggle();
-  }).on('mouseleave', '.item .product-image', function(e) {
-      // e.stopPropagation();
-      $(this).next('.toggle').toggle();
+  $('#container').on('mouseenter', '.item .product-image', function() {
+      if ( $(window).width() > 992 )
+      $(this).next('.description').fadeIn(500);
+  }).on('mouseleave', '.item .product-image', function() {
+      if ( $(window).width() > 992 )
+      $(this).next('.description').fadeOut(100);
   });
 
 })

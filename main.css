@@ -7,11 +7,10 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .item {
-  height: 30vw;
   width: 30vw;
   margin: 1vw;
   display: flex;
@@ -46,7 +45,7 @@ figcaption {
   font-size: 1rem;
   font-weight: 300;
   text-align: center;
-  /* display: none; */
+  display: none;
 }
 
 @media screen and (max-width: 992px) {
@@ -55,6 +54,6 @@ figcaption {
     width: 90vw;
   }
   figcaption {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
